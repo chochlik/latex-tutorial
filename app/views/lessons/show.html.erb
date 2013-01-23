@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<%= @lesson.description %>
+<br>
+<br>
+
+<%= @lesson.question %>
+<br>
+<br>
+
+<%= form_tag check_lesson_path(@lesson) do |f| %>
+  <div>
+    <%= label_tag :answer, "What is the answer?" %>
+    <br>
+    <%= text_field_tag :answer, "", :required => true %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "Sprawdź odpowiedź" %>
+  </div>
+<% end %>
+
+<% if @lesson.answer_given? %>
+  Twoja odpowiedź to: <%= @lesson.answer_given %>
+
+  <br>
+
+  <% if @lesson.answer_correct? %>
+    Była prawidłowa, woohoo!
+  <% else %>
+    Nie była prawidłowa. Kutas-smutas : (
+  <% end %>
+<% end %>
+
+<br><br>
+
+<%= link_to 'Edit', edit_lesson_path(@lesson) %> |
+<%= link_to 'Back', lessons_path %>
