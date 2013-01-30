@@ -1,5 +1,35 @@
-<h1>Listing lessons</h1>
+<h1>Kurs LaTeXa</h1>
+<br>
+LaTeX jest oprogramowaniem umożliwiającym profesjonalny skład tekstu oraz formatowanie dokumentów tekstowych i tekstowo graficznych. Opiera się na zasadzie WYSIWYM (ang. What You See Is What You Mean) co oznacza, że użytkownik określa logiczną strukturę dokumentu nie przejmując się ułożeniem graficznym. LaTeX jest szeroko rozpowszechniony w środowisku naukowym ze względu na łatwość implementacji rysunków, diagramów i nawet bardzo skomplikowanych wzorów.
+<br>
 
+<h3>Wiadomości wstępne</h3>
+<ul>
+  <li>spacja i tabulacja w dowolnej ilosci traktowane są jako jeden odstęp <br>
+  <li>pozostawienie pustego wiersza tworzy nowy akapit <br>
+  <li>polecenia w LaTeXu poprzedzona się znakiem \ <br>
+  <li>znaki specjalne to: $ & % # _ { } \. Aby użyć ich w tekstu należy je poprzedzić '\'. Wyjątkiem jest \, który się tworzy przy użyciu polecenia $\backslash$
+</ul>
+
+<br>
+<h3>Struktura pliku źródłowego</h3>
+ 
+<ul>
+  <li> preambuła: \documentclass[opcje]{klasa} <br>
+    dostępne klasy: article, report, book, letter <br>
+    opcje pozwalają m.in. określić wielkość czcionki, format papieru, druk jedno- lub dwustronny
+  <li> dodatkowe pakiety: \usepackage[opcje]{pakiet} <br>
+    umożliwiają m.in. dołączanie grafiki, łamanie dużych tabel, kolorowanie tekstu
+  <li> autor i tytuł: \author{} \title{}
+  <li> style: \pagestyle{styl} lub \thispagestyle{styl} <br>
+    określenie rodzaju paginy lub jej braku
+  <li> początek i koniec dokumentu \begin{document} \end{document}
+</ul>
+
+
+<br> <br>
+
+<h2>Lista zagadnień</h2>
 <table>
   <tr>
     <th></th>
@@ -7,7 +37,7 @@
 
   <% @lessons.each do |lesson| %>
     <tr>
-      <td><%= link_to lesson.description, lesson %></td>
+      <td><%= link_to "Lekcja nr #{lesson.id}", lesson %></td> 
     </tr>
   <% end %>
 </table>

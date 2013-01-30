@@ -6,11 +6,10 @@
 
 <%= @lesson.question %>
 <br>
-<br>
 
 <%= form_tag check_lesson_path(@lesson) do |f| %>
   <div>
-    <%= label_tag :answer, "What is the answer?" %>
+    <%= label_tag :answer, "Podaj odpowiedź" %>
     <br>
     <%= text_field_tag :answer, "", :required => true %>
   </div>
@@ -26,12 +25,12 @@
   <br>
 
   <% if @lesson.answer_correct? %>
-    Była prawidłowa, woohoo!
+    Jest prawidłowa.
   <% else %>
-    Nie była prawidłowa. Kutas-smutas : (
+    Nie jest prawidłowa.
   <% end %>
 <% end %>
 
 <br><br>
 
-<%= link_to 'Back', lessons_path %>
+<%= link_to 'Powrót', lessons_path %>
