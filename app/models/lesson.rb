@@ -7,6 +7,7 @@ class Lesson < ActiveRecord::Base
   def validate_answer(answer)
     @answer_given = answer
 
+    p self.answer
     if answer == self.answer
       @answer_correct = true
     end
